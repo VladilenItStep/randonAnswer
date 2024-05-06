@@ -20,14 +20,17 @@ const getAnswer = (index) => {
     return answers[index]
 }
 
+let count = 0
+console.log(window);
 const handlerCheckAnswer = function(index) {
-    console.log(cards);
-    console.log(index);
-    console.log(getAnswer(index));
-
     if (this.input.value === getAnswer(index)) {
         this.input.disabled = true
         this.btn.disabled = true
+        count++
+        if (count === 3) {
+            alert('Вы ответили правильно')
+            window.location.href = 'https://google.com'
+        }
     } else {
         this.input.value = ''
         alert('Ответ неверный, попробуйте угадать 1, 2 или 3')
